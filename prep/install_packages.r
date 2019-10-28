@@ -23,7 +23,9 @@ install.packages(c(
 'parsnip',
 'yardstick',
 'remotes',
-'devtools'
+'devtools',
+'glmnet', 'xgboost', 'coefplot', 'DiagrammeR', 'dygraphs',
+'shiny', 'shinythemes', 'flexdashboard', 'shinyjs'
 ))
 
 remotes::install_github("tidymodels/tune")
