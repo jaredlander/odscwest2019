@@ -1,0 +1,186 @@
+---
+title: "My Super Awesome Fun Day"
+author: "West Coast Guild"
+date: "Mischief Night"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+params:
+    client: "default"
+---
+
+```{r set-options,include=FALSE}
+knitr::opts_chunk$set(cache=TRUE,message=FALSE)
+```
+
+
+# First Section
+
+We start a new section with a single hashtag. When I first started teaching this, people called it a "pound sign" but not anymore. Adding a third sentence to fulfill antiquated rules of grammar. Mark Twain would disagree. And so would JD Salinger. But I won't curse here.
+
+To start a new paragraph we leave a blank line. White space is very important in markdown.
+
+# Another Section
+
+We start a new section by leaving a blank line and using a single hashtag. There is no need to close the previous section, just start a new one.
+
+# Subsections are Helpful
+
+We just started a new section to discuss syubsections.
+
+## First Subsection
+
+This subsection was started with two hashtags and is a sub to the preceeding section. No need to do anything to the enclosing section, just start a subsection.
+
+## A Followup Subsection
+
+To make another subsection, simply leave a blank line and use two hashtags. No need to close the prior subsection.
+
+# Lists {#list-info}
+
+First of all, notice that we exit subsection and section simply by creating a new section. We don't close anything.
+
+## Unordered Lists
+
+- Apple
+- Banana
+- Pumpkin Spice
+- Old Fashioned
+
+<!-- Let'd say I want to comment out this line -->
+
+<!-- And this line too -->
+
+## Ordered Lists
+
+1. New York
+    a. Coal
+    a. Wood
+    a. Gas
+1. New Jersey
+    i. Gas
+    i. Wood
+1. Naples
+    - Wood
+1. Detroit
+    - Gas
+1. Rome
+1. Philadelphia
+
+# Foramtting
+
+Surrounding text with _single underscores an no spaces_ creates emphasized text. This happens to look italic^[We chan change this with CSS] with default settings.
+
+Two __underscores__ will make strong text, which happens to look bold.
+
+Three underscores makes for ___emphasized and strong___ text.
+
+Backticks create `code style` text.
+
+# Links
+
+[My website](https://www.jaredlander.com)
+
+This link goes to our [section about lists](#list-info).
+
+# Spaces
+
+This is the first line.  
+This is the second line.
+
+# Math
+
+$$
+\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+$$
+
+We want to do $a + \bar{x}$ for our homework.
+
+$$
+\mathbb{X} = \begin{bmatrix}
+1 & x_{11} & x_{12} & \dots & x_{1p} \\
+1 & x_{21} & \dots & \dots & x_{2p}
+\end{bmatrix}
+$$
+
+$$
+\hat{\beta} = (X^TX)^{-1}X^TY
+$$
+
+# R Time!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+```{r simple-math}
+1 + 1
+2*3
+```
+
+Let's play with variables.
+
+```{r variables}
+x <- 3
+x
+```
+
+Can we use `x` in subsequent chunks?
+
+```{r use-variables}
+# R comment in a chunk
+x + 1
+```
+
+```{r show-options,results='hide'}
+z <- 5
+z*2
+```
+
+```{r show-z}
+z
+```
+
+Let's print out a number out of nowhere.
+
+```{r show-only-result,echo=FALSE}
+y <- 7
+y
+```
+
+Let's see the value of `y`: `r y`.
+
+# Plots!
+
+```{r diamond-scatter,message=FALSE,fig.cap='Scatterplot of price vs size and cut',cache=TRUE}
+library(ggplot2)
+ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point()
+```
+
+Wasn't that an awesome plot?
+
+# Paths
+
+```{r working-dir}
+getwd()
+dir()
+here::here()
+here::here('data', 'TomatoFirst.csv')
+tomato <- readr::read_csv(here::here('data', 'TomatoFirst.csv'))
+```
+
+# Images
+
+```{r display-image}
+knitr::include_graphics(here::here('images', 'ProjectCorner.png'))
+```
+
+# Parameters
+
+This report was generated for `r params$client`.
+
+
+```{r}
+knitr::include_graphics(here::here('images', sprintf('%s.png', params$client)))
+```
+
