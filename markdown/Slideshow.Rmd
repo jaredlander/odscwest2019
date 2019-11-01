@@ -1,0 +1,64 @@
+---
+title: Super Slick Slides
+author: The ODSC Cool Kids
+output:
+    ioslides_presentation:
+        widescreen: true
+---
+
+```{r options,include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+
+# Intro
+
+<div class='notes'>
+- This is the start of my slideshow
+</div>
+
+## First Slide
+
+Hey!!!! I made a slide!
+
+<div class='notes'>
+- Just getting started
+</div>
+
+## Fun Times
+
+Isn't this the best?
+
+<div class='notes'>
+- Keep it moving!!!!
+</div>
+
+# R Code
+
+<div class='notes'>
+- Now we get to the fun stuff
+</div>
+
+## Code Time
+
+```{r simple-code}
+x <- 3
+x*7
+```
+
+<div class='notes'>
+- this is simple code
+</div>
+
+## Plot
+
+```{r histogram,message=FALSE,fig.align='center'}
+library(ggplot2)
+ggplot(diamonds, aes(x=price)) + geom_histogram()
+```
+
+<div class='notes'>
+- with this plot we reach the end
+</div>
+
+## {data-background=../images/rstudio-create-project-git.png}

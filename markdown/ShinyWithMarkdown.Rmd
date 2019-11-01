@@ -88,6 +88,41 @@ renderText(input$PasswordSample)
 # Show Data
 
 ```{r render-tables}
+renderTable(mtcars)
 
+renderDataTable(mtcars)
+
+DT::renderDataTable(mtcars)
+```
+
+# Plots
+
+```{r render-plot}
+renderPlot(
+    ggplot(mtcars, aes_string(x='mpg')) + 
+        geom_histogram()
+)
+```
+
+```{r plot-choices}
+selectInput(
+    inputId='PlotColumn',
+    label='Choose a column',
+    choices=names(mtcars)
+)
+
+sliderInput(
+    inputId='Bins',
+    label='Choose Number of Bins',
+    min=3, max=100, value=30
+)
+```
+
+```{r render-cars-plot}
+renderPlot(
+    ggplot(mtcars, aes_string(input$PlotColumn)) + 
+        geom_histogram(bins=input$Bins)
+    
+)
 ```
 

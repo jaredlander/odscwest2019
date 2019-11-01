@@ -99,3 +99,4 @@ test %>%
     select(SalaryCY, Predicted_Salary)
 
 sqrt(mean((test_y - sal_preds6)^2))
+sqrt(mean((10^test_y - 10^sal_preds6)^2))
